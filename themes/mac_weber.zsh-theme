@@ -47,7 +47,7 @@ function ssh_connection() {
 }
 
 local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})%?%{$reset_color%}%K"
-PROMPT=$'%K(black)\n$(ssh_connection)%{$fg[green]%}%n@%m%{$reset_color%}%K%F{yellow} : %~$(my_git_prompt)\n%f[${ret_status}] %#%k '
+PROMPT=$'%K\n$(ssh_connection)%(!.%{$fg_bold[red]%}.%{$fg_bold[cyan]%})%n@%m%{$reset_color%}%K%F{yellow} : %~$(my_git_prompt)%k\n%K%f[${ret_status}] %#%k '
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_PREFIX=" $fg[white]‹ %{$fg_bold[blue]%}"
@@ -56,4 +56,4 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[red]%}●"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[white]%}●"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[red]%}✕"
-ZSH_THEME_GIT_PROMPT_SUFFIX=" %K%b$fg[white]›%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX=" %b$fg[white]%K›%{$reset_color%}"
